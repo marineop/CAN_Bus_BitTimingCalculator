@@ -126,7 +126,7 @@ namespace CAN_Bus_BitTimingCalculator
 								double clockTolerance2 = (double)Math.Min(phraseSeg1, phraseSeg2) / (2.0 * (13.0 * numberOfTimeQuanta - (double)phraseSeg2));
 								double clockTolerance = Math.Min(clockTolerance1, clockTolerance2) * 100.0;
 
-								uxNominalSolutions.Rows.Add(prescaler, numberOfTimeQuanta, tseg1, tseg2, sjw, samplingPoint, clockTolerance.ToString("0.####"));
+								uxNominalSolutions.Rows.Add(prescaler, numberOfTimeQuanta, tseg1, tseg2, sjw, samplingPoint, clockTolerance);
 
 								break;
 							}

@@ -30,6 +30,8 @@ namespace CAN_Bus_BitTimingCalculator
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.uxNominalSolutions = new System.Windows.Forms.DataGridView();
 			this.label1 = new System.Windows.Forms.Label();
 			this.uxBusPropagationDelay = new System.Windows.Forms.NumericUpDown();
@@ -77,16 +79,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.uxCalculate = new System.Windows.Forms.Button();
 			this.label30 = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
 			this.uxWarning = new System.Windows.Forms.Label();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.uxNominalResult = new System.Windows.Forms.Label();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,7 +102,6 @@ namespace CAN_Bus_BitTimingCalculator
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// uxNominalSolutions
@@ -725,15 +717,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label30.TabIndex = 7;
 			this.label30.Text = "CAN Bus 2.0 Bit Timing (CAN FD Nominal Bit Timing)";
 			// 
-			// label31
-			// 
-			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(596, 269);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(133, 15);
-			this.label31.TabIndex = 7;
-			this.label31.Text = "CAN FD Data Bit Timing";
-			// 
 			// uxWarning
 			// 
 			this.uxWarning.AutoSize = true;
@@ -745,84 +728,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxWarning.Text = "Warning! Propgation delay is more than half Bit Time!\r\nTry\r\n1. Decrease Target Bi" +
     "t Rate\r\n2. Decrease Bus Length\r\n3. Use faster Transceiver\r\n";
 			this.uxWarning.Visible = false;
-			// 
-			// dataGridView2
-			// 
-			this.dataGridView2.AllowUserToAddRows = false;
-			this.dataGridView2.AllowUserToDeleteRows = false;
-			this.dataGridView2.AllowUserToOrderColumns = true;
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
-			this.dataGridView2.Location = new System.Drawing.Point(599, 287);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.ReadOnly = true;
-			this.dataGridView2.RowHeadersVisible = false;
-			this.dataGridView2.RowTemplate.Height = 24;
-			this.dataGridView2.Size = new System.Drawing.Size(558, 385);
-			this.dataGridView2.TabIndex = 0;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn1.HeaderText = "Prescaler";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			this.dataGridViewTextBoxColumn1.Width = 79;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn2.HeaderText = "Ntq";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			this.dataGridViewTextBoxColumn2.Width = 52;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn3.HeaderText = "TSeg1";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			this.dataGridViewTextBoxColumn3.Width = 63;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn4.HeaderText = "TSeg2";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			this.dataGridViewTextBoxColumn4.Width = 63;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn5.HeaderText = "SJW (RJW)";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.ReadOnly = true;
-			this.dataGridViewTextBoxColumn5.Width = 79;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn6.HeaderText = "Sampling Point";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.ReadOnly = true;
-			this.dataGridViewTextBoxColumn6.Width = 104;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn7.HeaderText = "Clock Tolerance (%)";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.ReadOnly = true;
-			this.dataGridViewTextBoxColumn7.Width = 108;
 			// 
 			// uxNominalResult
 			// 
@@ -876,6 +781,9 @@ namespace CAN_Bus_BitTimingCalculator
 			// Column9
 			// 
 			this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			dataGridViewCellStyle1.Format = "N2";
+			dataGridViewCellStyle1.NullValue = null;
+			this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
 			this.Column9.HeaderText = "Sampling Point (%)";
 			this.Column9.Name = "Column9";
 			this.Column9.ReadOnly = true;
@@ -884,6 +792,9 @@ namespace CAN_Bus_BitTimingCalculator
 			// ClockTolerance
 			// 
 			this.ClockTolerance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			dataGridViewCellStyle2.Format = "N4";
+			dataGridViewCellStyle2.NullValue = null;
+			this.ClockTolerance.DefaultCellStyle = dataGridViewCellStyle2;
 			this.ClockTolerance.HeaderText = "Clock Tolerance (%)";
 			this.ClockTolerance.Name = "ClockTolerance";
 			this.ClockTolerance.ReadOnly = true;
@@ -896,7 +807,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.ClientSize = new System.Drawing.Size(1174, 695);
 			this.Controls.Add(this.uxNominalResult);
 			this.Controls.Add(this.uxWarning);
-			this.Controls.Add(this.label31);
 			this.Controls.Add(this.label30);
 			this.Controls.Add(this.uxCalculate);
 			this.Controls.Add(this.comboBox2);
@@ -943,7 +853,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.uxBusPropagationDelay);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.dataGridView2);
 			this.Controls.Add(this.uxNominalSolutions);
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
@@ -964,7 +873,6 @@ namespace CAN_Bus_BitTimingCalculator
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1019,16 +927,7 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.ComboBox comboBox2;
 		private System.Windows.Forms.Button uxCalculate;
 		private System.Windows.Forms.Label label30;
-		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.Label uxWarning;
-		private System.Windows.Forms.DataGridView dataGridView2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
 		private System.Windows.Forms.Label uxNominalResult;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
