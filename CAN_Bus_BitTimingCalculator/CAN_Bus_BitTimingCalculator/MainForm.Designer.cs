@@ -945,7 +945,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// dataGridViewTextBoxColumn19
 			// 
 			this.dataGridViewTextBoxColumn19.DataPropertyName = "DataTSeg2";
-			this.dataGridViewTextBoxColumn19.HeaderText = "D.TSeg1 (tq)";
+			this.dataGridViewTextBoxColumn19.HeaderText = "D.TSeg2 (tq)";
 			this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
 			this.dataGridViewTextBoxColumn19.ReadOnly = true;
 			// 

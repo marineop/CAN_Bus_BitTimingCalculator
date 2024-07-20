@@ -64,7 +64,7 @@ namespace CAN_Bus_BitTimingCalculator
 		[System.ComponentModel.DisplayName("D.TSeg1 (tq)")]
 		public int DataTSeg1 { get; private set; }
 
-		[System.ComponentModel.DisplayName("D.TSeg1 (tq)")]
+		[System.ComponentModel.DisplayName("D.TSeg2 (tq)")]
 		public int DataTSeg2 { get; private set; }
 
 		[System.ComponentModel.DisplayName("D.Smpling Point (%)")]
