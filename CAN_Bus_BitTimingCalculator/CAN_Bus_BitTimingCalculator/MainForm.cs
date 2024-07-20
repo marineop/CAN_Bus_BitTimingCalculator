@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace CAN_Bus_BitTimingCalculator
 				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 			}
 
+			SetDoubleBuffer(uxNominalSolutions);
+
 			uxDataBitRate.DataSource = null;
 			uxDataBitRate.DataSource = new List<int>() { 125, 250, 500, 800, 1000, 2000, 4000, 5000, 8000 };
 			uxDataBitRate.SelectedItem = 2000;
@@ -38,6 +41,13 @@ namespace CAN_Bus_BitTimingCalculator
 			{
 				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 			}
+
+			SetDoubleBuffer(uxFDSolutions);
+		}
+
+		private void SetDoubleBuffer(Control control)
+		{
+			typeof(Control).InvokeMember("DoubleBuffered", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty, null, control, new object[] { DoubleBuffered });
 		}
 
 		private void uxCalculateCAN_Click(object sender, EventArgs e)
@@ -80,7 +90,7 @@ namespace CAN_Bus_BitTimingCalculator
 					if (bitTimings.Count > 0)
 					{
 						SortableBindingList<CANBitTimingUI> bitTimingsUI = new SortableBindingList<CANBitTimingUI>();
-						for(int i = 0; i < bitTimings.Count; ++i)
+						for (int i = 0; i < bitTimings.Count; ++i)
 						{
 							bitTimingsUI.Add(new CANBitTimingUI(bitTimings[i]));
 						}

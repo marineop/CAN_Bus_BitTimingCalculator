@@ -142,6 +142,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxNominalSolutions.AllowUserToAddRows = false;
 			this.uxNominalSolutions.AllowUserToDeleteRows = false;
 			this.uxNominalSolutions.AllowUserToOrderColumns = true;
+			this.uxNominalSolutions.AllowUserToResizeRows = false;
 			this.uxNominalSolutions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uxNominalSolutions.AutoGenerateColumns = false;
@@ -159,10 +160,12 @@ namespace CAN_Bus_BitTimingCalculator
             this.clockTolerancePercentageDataGridViewTextBoxColumn1,
             this.uxClockTolerancePPMColumn});
 			this.uxNominalSolutions.DataSource = this.cANBitTimingUIBindingSource;
+			this.uxNominalSolutions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
 			this.uxNominalSolutions.Location = new System.Drawing.Point(26, 257);
 			this.uxNominalSolutions.Name = "uxNominalSolutions";
 			this.uxNominalSolutions.ReadOnly = true;
 			this.uxNominalSolutions.RowHeadersVisible = false;
+			this.uxNominalSolutions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.uxNominalSolutions.RowTemplate.Height = 24;
 			this.uxNominalSolutions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.uxNominalSolutions.Size = new System.Drawing.Size(1324, 234);
@@ -785,6 +788,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxFDSolutions.AllowUserToAddRows = false;
 			this.uxFDSolutions.AllowUserToDeleteRows = false;
 			this.uxFDSolutions.AllowUserToOrderColumns = true;
+			this.uxFDSolutions.AllowUserToResizeRows = false;
 			this.uxFDSolutions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -806,10 +810,12 @@ namespace CAN_Bus_BitTimingCalculator
             this.clockTolerancePercentageDataGridViewTextBoxColumn,
             this.uxCANFDClockTolerancePPMColumn});
 			this.uxFDSolutions.DataSource = this.cANFDBitTimingUIBindingSource;
+			this.uxFDSolutions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
 			this.uxFDSolutions.Location = new System.Drawing.Point(26, 519);
 			this.uxFDSolutions.Name = "uxFDSolutions";
 			this.uxFDSolutions.ReadOnly = true;
 			this.uxFDSolutions.RowHeadersVisible = false;
+			this.uxFDSolutions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.uxFDSolutions.RowTemplate.Height = 24;
 			this.uxFDSolutions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.uxFDSolutions.Size = new System.Drawing.Size(1324, 380);
@@ -1118,6 +1124,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.uxFDSolutions);
 			this.Controls.Add(this.uxNominalSolutions);
+			this.DoubleBuffered = true;
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "MainForm";
