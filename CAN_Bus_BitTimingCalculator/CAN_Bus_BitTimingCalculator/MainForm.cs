@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CANBusBitTiming;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,119 +24,78 @@ namespace CAN_Bus_BitTimingCalculator
 			uxNominalBitRate.DataSource = null;
 			uxNominalBitRate.DataSource = new List<int>() { 125, 250, 500, 800, 1000 };
 			uxNominalBitRate.SelectedItem = 1000;
+
+			foreach (DataGridViewColumn column in uxNominalSolutions.Columns)
+			{
+				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+			}
+
+			uxDataBitRate.DataSource = null;
+			uxDataBitRate.DataSource = new List<int>() { 125, 250, 500, 800, 1000, 2000, 4000, 5000, 8000 };
+			uxDataBitRate.SelectedItem = 2000;
+
+			foreach (DataGridViewColumn column in uxFDSolutions.Columns)
+			{
+				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+			}
 		}
 
-		private void uxCalculate_Click(object sender, EventArgs e)
+		private void uxCalculateCAN_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				uxNominalSolutions.Rows.Clear();
 				uxWarning.Visible = false;
+				uxNominalSolutions.DataSource = null;
 
-				double busLength = (double)uxBusLength.Value;
-				double busProgationDelay = (double)uxBusPropagationDelay.Value;
-				int ipt = (int)uxIPT.Value;
-				int clockFrequency = (int)((double)uxClockFrequency.Value * 1e6);
-				double transceiverLoopDelay = (double)uxTransceiverLoopDelay.Value;
+				CommonParameters commonParameters = new CommonParameters();
+				commonParameters.BusLength = (double)uxBusLength.Value;
+				commonParameters.BusPropagationDelay = (double)uxBusPropagationDelay.Value;
+				commonParameters.InformationProcessingTime = (int)uxIPT.Value;
+				commonParameters.ClockFrequency = (int)((double)uxClockFrequency.Value * 1e6);
+				commonParameters.TransceiverLoopDelay = (double)uxTransceiverLoopDelay.Value;
 
-				int tseg1Min = (int)uxTSeg1Min.Value;
-				int tseg1Max = (int)uxTSeg1Max.Value;
+				CANControllerParameters nominal = new CANControllerParameters();
+				nominal.TSeg1Min = (int)uxTSeg1Min.Value;
+				nominal.TSeg1Max = (int)uxTSeg1Max.Value;
 
-				int tseg2Min = (int)uxTSeg2Min.Value;
-				int tseg2Max = (int)uxTSeg2Max.Value;
+				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
+				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
 
-				int nominalBitRate = (int)(double.Parse(uxNominalBitRate.Text) * 1000);
+				nominal.TargetBitRate = (int)(double.Parse(uxNominalBitRate.Text) * 1000);
 
-				int minNumberOfTimeQuanta = 1 + tseg1Min + tseg2Min;
-				int maxNumberOfTimeQuanta = 1 + tseg1Max + tseg2Max;
+				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
+				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
 
-				double tProg = 2.0 * (transceiverLoopDelay + busLength * busProgationDelay);
+				CheckPropagationDelayRatio(commonParameters, nominal);
 
-				double propRatio = tProg / (1.0 / nominalBitRate * 1e9);
-				if (propRatio > 0.5)
+				if (commonParameters.ClockFrequency % nominal.TargetBitRate != 0)
 				{
-					uxWarning.Visible = true;
+					SetResult(uxCaculateCANResult, false, "Clock Frequency not divisible!");
 				}
-
-				if (clockFrequency % nominalBitRate != 0)
+				else
 				{
-					SetResult(false, "Clock Frequency not divisible!");
-					return;
-				}
+					Calculator calculator = new Calculator();
+					List<CANBitTiming> bitTimings = calculator.CalculateCANBitTiming(commonParameters, nominal);
 
-				int phraseSeg1 = 0;
-				int phraseSeg2 = 0;
-				int sjw = 0;
-
-				for (int numberOfTimeQuanta = minNumberOfTimeQuanta; numberOfTimeQuanta < maxNumberOfTimeQuanta + 1; ++numberOfTimeQuanta)
-				{
-					int prescaler = 0;
-					while (true)
+					if (bitTimings.Count > 0)
 					{
-						++prescaler;
-						if (clockFrequency % prescaler != 0)
+						SortableBindingList<CANBitTimingUI> bitTimingsUI = new SortableBindingList<CANBitTimingUI>();
+						for(int i = 0; i < bitTimings.Count; ++i)
 						{
-							continue;
+							bitTimingsUI.Add(new CANBitTimingUI(bitTimings[i]));
 						}
-						else
-						{
-							int newClockFrequency = clockFrequency / prescaler;
-							if (newClockFrequency % nominalBitRate != 0)
-							{
-								continue;
-							}
 
-							if (newClockFrequency / nominalBitRate < numberOfTimeQuanta)
-							{
-								break;
-							}
-							else if (newClockFrequency / nominalBitRate == numberOfTimeQuanta)
-							{
-								double timeQuantum = 1.0 / (double)newClockFrequency * 1e9;
-								int porpSeg = (int)Math.Ceiling(tProg / timeQuantum);
+						uxNominalSolutions.DataSource = bitTimingsUI;
 
-								int remain = numberOfTimeQuanta - 1 - porpSeg;
+						uxNominalSolutions.Sort(uxNominalSolutions.Columns["uxClockTolerancePPMColumn"], ListSortDirection.Descending);
 
-								if (remain < ipt + 1 || remain < 2)
-								{
-									break;
-								}
-
-								if (remain % 2 != 0)
-								{
-									++porpSeg;
-									--remain;
-								}
-
-								phraseSeg1 = remain / 2;
-								phraseSeg2 = phraseSeg1;
-
-								if(phraseSeg2 < ipt)
-								{
-									porpSeg -= (ipt - phraseSeg2);
-									phraseSeg2 = ipt;
-								}
-
-								sjw = Math.Min(phraseSeg1, 4);
-
-								int tseg1 = porpSeg + phraseSeg1;
-								int tseg2 = phraseSeg2;
-
-								double samplingPoint = (double)(1 + tseg1) / (double)numberOfTimeQuanta * 100.0;
-
-								double clockTolerance1 = (double)sjw / (20.0 * (double)numberOfTimeQuanta);
-								double clockTolerance2 = (double)Math.Min(phraseSeg1, phraseSeg2) / (2.0 * (13.0 * numberOfTimeQuanta - (double)phraseSeg2));
-								double clockTolerance = Math.Min(clockTolerance1, clockTolerance2) * 100.0;
-
-								uxNominalSolutions.Rows.Add(prescaler, numberOfTimeQuanta, tseg1, tseg2, sjw, samplingPoint, clockTolerance);
-
-								break;
-							}
-						}
+						SetResult(uxCaculateCANResult, true, "");
+					}
+					else
+					{
+						SetResult(uxCaculateCANResult, false, "No Solution!");
 					}
 				}
-
-				uxNominalSolutions.Sort(uxNominalSolutions.Columns["ClockTolerance"], ListSortDirection.Descending);
 			}
 			catch (Exception ex)
 			{
@@ -142,23 +103,130 @@ namespace CAN_Bus_BitTimingCalculator
 			}
 		}
 
-		private void SetResult(bool success, string message)
+		private void uxCalculateCANFD_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				uxWarning.Visible = false;
+				uxFDSolutions.DataSource = null;
+
+				CommonParameters commonParameters = new CommonParameters();
+				commonParameters.BusLength = (double)uxBusLength.Value;
+				commonParameters.BusPropagationDelay = (double)uxBusPropagationDelay.Value;
+				commonParameters.InformationProcessingTime = (int)uxIPT.Value;
+				commonParameters.ClockFrequency = (int)((double)uxClockFrequency.Value * 1e6);
+				commonParameters.TransceiverLoopDelay = (double)uxTransceiverLoopDelay.Value;
+
+				CANControllerParameters nominal = new CANControllerParameters();
+				nominal.TSeg1Min = (int)uxTSeg1Min.Value;
+				nominal.TSeg1Max = (int)uxTSeg1Max.Value;
+
+				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
+				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
+
+				nominal.TargetBitRate = (int)(double.Parse(uxNominalBitRate.Text) * 1000);
+
+				CANControllerParameters data = new CANControllerParameters();
+				data.TSeg1Min = (int)uxDataTSeg1Min.Value;
+				data.TSeg1Max = (int)uxDataTSeg1Max.Value;
+
+				data.TSeg2Min = (int)uxDataTSeg2Min.Value;
+				data.TSeg2Max = (int)uxDataTSeg2Max.Value;
+
+				data.TargetBitRate = (int)(double.Parse(uxDataBitRate.Text) * 1000);
+
+				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
+				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
+
+				CheckPropagationDelayRatio(commonParameters, nominal);
+
+				if (commonParameters.ClockFrequency % nominal.TargetBitRate != 0)
+				{
+					SetResult(uxCaculateCANFDResult, false, "Clock Frequency not divisible!");
+				}
+				else
+				{
+					Calculator calculator = new Calculator();
+					List<CANFDBitTiming> bitTimings = calculator.CalculateCANFDBitTiming(commonParameters, nominal, data);
+
+					if (bitTimings.Count > 0)
+					{
+						SortableBindingList<CANFDBitTimingUI> bitTimingsUI = new SortableBindingList<CANFDBitTimingUI>();
+						for (int i = 0; i < bitTimings.Count; ++i)
+						{
+							bitTimingsUI.Add(new CANFDBitTimingUI(bitTimings[i]));
+						}
+
+						uxFDSolutions.DataSource = bitTimingsUI;
+
+						uxFDSolutions.Sort(uxFDSolutions.Columns["uxCANFDClockTolerancePPMColumn"], ListSortDirection.Descending);
+
+						SetResult(uxCaculateCANFDResult, true, "");
+					}
+					else
+					{
+						SetResult(uxCaculateCANFDResult, false, "No Solution!");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ShowError(ex);
+			}
+		}
+
+		private void CheckPropagationDelayRatio(CommonParameters commonParameters, CANControllerParameters nominal)
+		{
+			double tProg = 2.0 * (commonParameters.TransceiverLoopDelay + commonParameters.BusLength * commonParameters.BusPropagationDelay);
+
+			double propRatio = tProg / (1.0 / nominal.TargetBitRate * 1e9);
+			if (propRatio > 0.5)
+			{
+				uxWarning.Visible = true;
+			}
+		}
+
+		private void SetResult(Label labe1, bool success, string message)
 		{
 			if (success)
 			{
-				uxNominalResult.BackColor = Color.LightGreen;
-				uxNominalResult.Text = "Solution Found";
+				labe1.BackColor = Color.LightGreen;
+				labe1.Text = "Solution Found";
 			}
 			else
 			{
-				uxNominalResult.BackColor = Color.LightPink;
-				uxNominalResult.Text = message;
+				labe1.BackColor = Color.LightPink;
+				labe1.Text = message;
 			}
 		}
 
 		private void ShowError(Exception ex)
 		{
 			MessageBox.Show(ex.Message);
+		}
+
+		private void uxSetTSegToCANFDDefault_Click(object sender, EventArgs e)
+		{
+			uxTSeg1Min.Value = 2;
+			uxTSeg1Max.Value = 256;
+
+			uxTSeg2Min.Value = 1;
+			uxTSeg2Max.Value = 128;
+
+			uxDataTSeg1Min.Value = 1;
+			uxDataTSeg1Max.Value = 32;
+
+			uxDataTSeg2Min.Value = 1;
+			uxDataTSeg2Max.Value = 16;
+		}
+
+		private void uxSetTSegToCAN20Default_Click(object sender, EventArgs e)
+		{
+			uxTSeg1Min.Value = 2;
+			uxTSeg1Max.Value = 16;
+
+			uxTSeg2Min.Value = 1;
+			uxTSeg2Max.Value = 8;
 		}
 	}
 }
