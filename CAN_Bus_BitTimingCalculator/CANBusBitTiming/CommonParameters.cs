@@ -11,7 +11,7 @@ namespace CANBusBitTiming
 		public double BusLength { get; set; } // m
 		public double BusPropagationDelay { get; set; } // ns/m
 		public int InformationProcessingTime { get; set; } // tq
-		public int ClockFrequency { get; set; } // Hz
+		public long ClockFrequency { get; set; } // Hz
 		public double TransceiverLoopDelay { get; set; } // ns
 	}
 }

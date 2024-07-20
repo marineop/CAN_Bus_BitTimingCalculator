@@ -51,7 +51,7 @@ namespace CAN_Bus_BitTimingCalculator
 				commonParameters.BusLength = (double)uxBusLength.Value;
 				commonParameters.BusPropagationDelay = (double)uxBusPropagationDelay.Value;
 				commonParameters.InformationProcessingTime = (int)uxIPT.Value;
-				commonParameters.ClockFrequency = (int)((double)uxClockFrequency.Value * 1e6);
+				commonParameters.ClockFrequency = (long)((double)uxClockFrequency.Value * 1e6);
 				commonParameters.TransceiverLoopDelay = (double)uxTransceiverLoopDelay.Value;
 
 				CANControllerParameters nominal = new CANControllerParameters();
