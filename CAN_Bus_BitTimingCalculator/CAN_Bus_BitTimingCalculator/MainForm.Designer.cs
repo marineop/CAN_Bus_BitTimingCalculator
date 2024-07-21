@@ -110,6 +110,9 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label40 = new System.Windows.Forms.Label();
 			this.uxSecondarySamplingPoint = new System.Windows.Forms.CheckBox();
 			this.uxSSPPanel = new System.Windows.Forms.Panel();
+			this.label41 = new System.Windows.Forms.Label();
+			this.label42 = new System.Windows.Forms.Label();
+			this.uxToolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.nominalPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,8 +140,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.clockTolerancePercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.uxClockTolerancePPMColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cANBitTimingUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.label41 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSolutions)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusPropagationDelay)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusLength)).BeginInit();
@@ -281,6 +282,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label5.Size = new System.Drawing.Size(95, 15);
 			this.label5.TabIndex = 1;
 			this.label5.Text = "Clock Frequency";
+			this.uxToolTip.SetToolTip(this.label5, "The system clock to the CAN controller before Prescaler");
 			// 
 			// uxClockFrequency
 			// 
@@ -319,6 +321,8 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label7.Size = new System.Drawing.Size(127, 15);
 			this.label7.TabIndex = 1;
 			this.label7.Text = "Transceiver Loop Delay";
+			this.uxToolTip.SetToolTip(this.label7, "Check transceiver datasheet\r\nThe delay time from TX change to RX change\r\nUse the " +
+        "maximum value");
 			// 
 			// uxTransceiverLoopDelay
 			// 
@@ -361,6 +365,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label9.Size = new System.Drawing.Size(107, 15);
 			this.label9.TabIndex = 1;
 			this.label9.Text = "CAN Controller IPT";
+			this.uxToolTip.SetToolTip(this.label9, "IPT (Information Processing Time)\r\nCheck the MCU or CAN controller datasheet");
 			// 
 			// uxIPT
 			// 
@@ -425,6 +430,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label14.Size = new System.Drawing.Size(74, 15);
 			this.label14.TabIndex = 1;
 			this.label14.Text = "TSeg1 Range";
+			this.uxToolTip.SetToolTip(this.label14, "Check the reference manual of the CAN controller\r\n");
 			// 
 			// uxTSeg1Min
 			// 
@@ -453,7 +459,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(711, 142);
+			this.label16.Location = new System.Drawing.Point(711, 203);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(82, 15);
 			this.label16.TabIndex = 1;
@@ -462,7 +468,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(967, 142);
+			this.label17.Location = new System.Drawing.Point(967, 203);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(32, 15);
 			this.label17.TabIndex = 3;
@@ -471,7 +477,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// uxNominalBitRate
 			// 
 			this.uxNominalBitRate.FormattingEnabled = true;
-			this.uxNominalBitRate.Location = new System.Drawing.Point(841, 140);
+			this.uxNominalBitRate.Location = new System.Drawing.Point(841, 201);
 			this.uxNominalBitRate.Name = "uxNominalBitRate";
 			this.uxNominalBitRate.Size = new System.Drawing.Size(120, 23);
 			this.uxNominalBitRate.TabIndex = 5;
@@ -517,6 +523,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label15.Size = new System.Drawing.Size(74, 15);
 			this.label15.TabIndex = 1;
 			this.label15.Text = "TSeg2 Range";
+			this.uxToolTip.SetToolTip(this.label15, "Check the reference manual of the CAN controller");
 			// 
 			// label19
 			// 
@@ -728,7 +735,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// label26
 			// 
 			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(1056, 145);
+			this.label26.Location = new System.Drawing.Point(1056, 206);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(82, 15);
 			this.label26.TabIndex = 1;
@@ -737,7 +744,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// label27
 			// 
 			this.label27.AutoSize = true;
-			this.label27.Location = new System.Drawing.Point(1312, 145);
+			this.label27.Location = new System.Drawing.Point(1312, 206);
 			this.label27.Name = "label27";
 			this.label27.Size = new System.Drawing.Size(32, 15);
 			this.label27.TabIndex = 3;
@@ -764,7 +771,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// uxDataBitRate
 			// 
 			this.uxDataBitRate.FormattingEnabled = true;
-			this.uxDataBitRate.Location = new System.Drawing.Point(1186, 142);
+			this.uxDataBitRate.Location = new System.Drawing.Point(1186, 203);
 			this.uxDataBitRate.Name = "uxDataBitRate";
 			this.uxDataBitRate.Size = new System.Drawing.Size(120, 23);
 			this.uxDataBitRate.TabIndex = 5;
@@ -1085,7 +1092,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxSecondarySamplingPoint.AutoSize = true;
 			this.uxSecondarySamplingPoint.Checked = true;
 			this.uxSecondarySamplingPoint.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.uxSecondarySamplingPoint.Location = new System.Drawing.Point(1059, 170);
+			this.uxSecondarySamplingPoint.Location = new System.Drawing.Point(1059, 142);
 			this.uxSecondarySamplingPoint.Name = "uxSecondarySamplingPoint";
 			this.uxSecondarySamplingPoint.Size = new System.Drawing.Size(165, 19);
 			this.uxSecondarySamplingPoint.TabIndex = 14;
@@ -1101,10 +1108,30 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxSSPPanel.Controls.Add(this.uxDataSamplingPointMax);
 			this.uxSSPPanel.Controls.Add(this.label40);
 			this.uxSSPPanel.Enabled = false;
-			this.uxSSPPanel.Location = new System.Drawing.Point(1059, 195);
+			this.uxSSPPanel.Location = new System.Drawing.Point(1053, 167);
 			this.uxSSPPanel.Name = "uxSSPPanel";
 			this.uxSSPPanel.Size = new System.Drawing.Size(278, 27);
 			this.uxSSPPanel.TabIndex = 15;
+			// 
+			// label41
+			// 
+			this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.label41.Location = new System.Drawing.Point(27, 578);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(542, 26);
+			this.label41.TabIndex = 16;
+			this.label41.Text = "Norminal";
+			this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label42
+			// 
+			this.label42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.label42.Location = new System.Drawing.Point(568, 578);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(542, 26);
+			this.label42.TabIndex = 16;
+			this.label42.Text = "Data";
+			this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// nominalPrescalerDataGridViewTextBoxColumn
 			// 
@@ -1308,26 +1335,6 @@ namespace CAN_Bus_BitTimingCalculator
 			// cANBitTimingUIBindingSource
 			// 
 			this.cANBitTimingUIBindingSource.DataSource = typeof(CAN_Bus_BitTimingCalculator.CANBitTimingUI);
-			// 
-			// label41
-			// 
-			this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.label41.Location = new System.Drawing.Point(27, 578);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(542, 26);
-			this.label41.TabIndex = 16;
-			this.label41.Text = "Norminal";
-			this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label42
-			// 
-			this.label42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.label42.Location = new System.Drawing.Point(568, 578);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(542, 26);
-			this.label42.TabIndex = 16;
-			this.label42.Text = "Data";
-			this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MainForm
 			// 
@@ -1543,6 +1550,7 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.Panel uxSSPPanel;
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.Label label42;
+		private System.Windows.Forms.ToolTip uxToolTip;
 	}
 }
 

@@ -65,10 +65,19 @@ namespace CAN_Bus_BitTimingCalculator
 				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
 				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
 
-				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
+				double targetBitRateDobule = (double.Parse(uxNominalBitRate.Text) * 1000);
+				if(targetBitRateDobule > long.MaxValue)
+				{
+					throw new Exception("Target bit Rate is too large!");
+				}
+				nominal.TargetBitRate = (long)targetBitRateDobule;
 
 				nominal.SamplingPointMin = (double)uxNominalSamplingPointMin.Value * 1e-2;
 				nominal.SamplingPointMax = (double)uxNominalSamplingPointMax.Value * 1e-2;
+				if (nominal.SamplingPointMin > nominal.SamplingPointMax)
+				{
+					throw new Exception("Sampling Point Min must be less than or equal to Sampling Point Max!");
+				}
 
 				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
 				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
@@ -129,10 +138,19 @@ namespace CAN_Bus_BitTimingCalculator
 				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
 				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
 
-				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
+				double targetBitRateDobule = (double.Parse(uxNominalBitRate.Text) * 1000);
+				if (targetBitRateDobule > long.MaxValue)
+				{
+					throw new Exception("Target bit Rate is too large!");
+				}
+				nominal.TargetBitRate = (long)targetBitRateDobule;
 
 				nominal.SamplingPointMin = (double)uxNominalSamplingPointMin.Value * 1e-2;
 				nominal.SamplingPointMax = (double)uxNominalSamplingPointMax.Value * 1e-2;
+				if(nominal.SamplingPointMin > nominal.SamplingPointMax)
+				{
+					throw new Exception("Sampling Point Min must be less than or equal to Sampling Point Max!");
+				}
 
 				CANControllerParameters data = new CANControllerParameters();
 				data.TSeg1Min = (int)uxDataTSeg1Min.Value;
@@ -141,10 +159,19 @@ namespace CAN_Bus_BitTimingCalculator
 				data.TSeg2Min = (int)uxDataTSeg2Min.Value;
 				data.TSeg2Max = (int)uxDataTSeg2Max.Value;
 
-				data.TargetBitRate = (long)(double.Parse(uxDataBitRate.Text) * 1000);
+				targetBitRateDobule = (double.Parse(uxDataBitRate.Text) * 1000);
+				if (targetBitRateDobule > long.MaxValue)
+				{
+					throw new Exception("Target bit Rate is too large!");
+				}
+				data.TargetBitRate = (long)targetBitRateDobule;
 
 				data.SamplingPointMin = (double)uxDataSamplingPointMin.Value * 1e-2;
 				data.SamplingPointMax = (double)uxDataSamplingPointMax.Value * 1e-2;
+				if (data.SamplingPointMin > data.SamplingPointMax)
+				{
+					throw new Exception("Sampling Point Min must be less than or equal to Sampling Point Max!");
+				}
 
 				data.UseSecondarySamplingPoint = uxSecondarySamplingPoint.Checked;
 
@@ -219,7 +246,7 @@ namespace CAN_Bus_BitTimingCalculator
 
 		private void ShowError(Exception ex)
 		{
-			MessageBox.Show(ex.Message);
+			MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		private void uxSetTSegToCANFDDefault_Click(object sender, EventArgs e)
