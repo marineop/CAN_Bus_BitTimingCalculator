@@ -17,7 +17,7 @@ namespace CAN_Bus_BitTimingCalculator
 	public partial class MainForm : Form
 	{
 		private SortableBindingList<CANBitTimingUI> _canBitTimingsUI = new SortableBindingList<CANBitTimingUI>();
-		SortableBindingList<CANFDBitTimingUI> _canFdbitTimingsUI = new SortableBindingList<CANFDBitTimingUI>();
+		private SortableBindingList<CANFDBitTimingUI> _canFdbitTimingsUI = new SortableBindingList<CANFDBitTimingUI>();
 
 		public MainForm()
 		{
@@ -91,7 +91,7 @@ namespace CAN_Bus_BitTimingCalculator
 
 						uxNominalSolutions.DataSource = _canBitTimingsUI;
 
-						SetResult(uxCaculateCANResult, true, "");
+						SetResult(uxCaculateCANResult, true, $"{_canBitTimingsUI.Count} Solution{(_canBitTimingsUI.Count > 1 ? "s" : "")} Found");
 					}
 					else
 					{
@@ -161,7 +161,7 @@ namespace CAN_Bus_BitTimingCalculator
 
 						uxFDSolutions.DataSource = _canFdbitTimingsUI;
 
-						SetResult(uxCaculateCANFDResult, true, "");
+						SetResult(uxCaculateCANFDResult, true, $"{_canFdbitTimingsUI.Count} Solution{(_canFdbitTimingsUI.Count > 1 ? "s":"")} Found");
 					}
 					else
 					{
@@ -191,13 +191,13 @@ namespace CAN_Bus_BitTimingCalculator
 			if (success)
 			{
 				labe1.BackColor = Color.LightGreen;
-				labe1.Text = "Solution Found";
 			}
 			else
 			{
 				labe1.BackColor = Color.LightPink;
-				labe1.Text = message;
 			}
+
+			labe1.Text = message;
 		}
 
 		private void ShowError(Exception ex)
