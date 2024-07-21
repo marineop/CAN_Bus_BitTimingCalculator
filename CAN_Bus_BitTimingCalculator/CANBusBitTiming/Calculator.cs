@@ -29,6 +29,13 @@ namespace CANBusBitTiming
 				}
 			}
 
+
+			fdBitTimings.Sort((x, y) =>
+			{
+				return y.MinClockTolerance.CompareTo(x.MinClockTolerance);
+			});
+
+
 			return fdBitTimings;
 		}
 
@@ -42,6 +49,11 @@ namespace CANBusBitTiming
 			{
 				bitTimings.Add(new CANBitTiming(bitTiming));
 			}
+
+			bitTimings.Sort((x, y) =>
+			{
+				return y.MinClockTolerance.CompareTo(x.MinClockTolerance);
+			});
 
 			return bitTimings;
 		}
