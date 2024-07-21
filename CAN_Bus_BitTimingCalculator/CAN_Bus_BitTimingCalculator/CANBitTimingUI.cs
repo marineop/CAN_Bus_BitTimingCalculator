@@ -12,7 +12,7 @@ namespace CAN_Bus_BitTimingCalculator
 		[System.ComponentModel.DisplayName("Prescaler")]
 		public int Prescaler { get; set; }
 
-		[System.ComponentModel.DisplayName("Ntq")]
+		[System.ComponentModel.DisplayName("NBT (tq)")]
 		public int NumberOfTimeQuantaPerBit { get; set; }
 
 		[System.ComponentModel.DisplayName("Prop_Seg (tq)")]

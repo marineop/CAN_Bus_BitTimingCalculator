@@ -20,7 +20,7 @@ namespace CANBusBitTiming
 
 		public override string ToString()
 		{
-			return $"Ntq={NumberOfTimeQuantaPerBit}, Pre={Prescaler}, TSeg1={TSeg1}, TSeg2={TSeg2}, SJW={ResynchronizationJumpWidth}";
+			return $"NBT={NumberOfTimeQuantaPerBit}, Pre={Prescaler}, TSeg1={TSeg1}, TSeg2={TSeg2}, SJW={ResynchronizationJumpWidth}";
 		}
 	}
 }

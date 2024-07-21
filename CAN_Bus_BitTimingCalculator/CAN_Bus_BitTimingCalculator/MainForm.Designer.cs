@@ -878,7 +878,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// dataGridViewTextBoxColumn10
 			// 
 			this.dataGridViewTextBoxColumn10.DataPropertyName = "NominalNumberOfTimeQuantaPerBit";
-			this.dataGridViewTextBoxColumn10.HeaderText = "N.Ntq";
+			this.dataGridViewTextBoxColumn10.HeaderText = "N.NBT (tq)";
 			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
 			this.dataGridViewTextBoxColumn10.ReadOnly = true;
 			// 
@@ -913,7 +913,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// dataGridViewTextBoxColumn16
 			// 
 			this.dataGridViewTextBoxColumn16.DataPropertyName = "DataNumberOfTimeQuantaPerBit";
-			this.dataGridViewTextBoxColumn16.HeaderText = "D.Ntq";
+			this.dataGridViewTextBoxColumn16.HeaderText = "D.NBT (tq)";
 			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
 			this.dataGridViewTextBoxColumn16.ReadOnly = true;
 			// 
@@ -978,7 +978,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// dataGridViewTextBoxColumn2
 			// 
 			this.dataGridViewTextBoxColumn2.DataPropertyName = "NumberOfTimeQuantaPerBit";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Ntq";
+			this.dataGridViewTextBoxColumn2.HeaderText = "NBT (tq)";
 			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
 			this.dataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
