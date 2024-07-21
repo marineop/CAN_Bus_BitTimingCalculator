@@ -33,7 +33,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.uxNominalSolutions = new System.Windows.Forms.DataGridView();
@@ -96,7 +95,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -170,6 +168,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxNominalSolutions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.uxNominalSolutions.Size = new System.Drawing.Size(1324, 234);
 			this.uxNominalSolutions.TabIndex = 0;
+			this.uxNominalSolutions.VirtualMode = true;
 			// 
 			// label1
 			// 
@@ -800,7 +799,6 @@ namespace CAN_Bus_BitTimingCalculator
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
@@ -905,15 +903,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
 			this.dataGridViewTextBoxColumn13.ReadOnly = true;
 			// 
-			// dataGridViewTextBoxColumn14
-			// 
-			this.dataGridViewTextBoxColumn14.DataPropertyName = "SamplingPoint";
-			dataGridViewCellStyle3.Format = "N2";
-			this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle3;
-			this.dataGridViewTextBoxColumn14.HeaderText = "N.Sampling Point (%)";
-			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-			this.dataGridViewTextBoxColumn14.ReadOnly = true;
-			// 
 			// dataGridViewTextBoxColumn15
 			// 
 			this.dataGridViewTextBoxColumn15.DataPropertyName = "DataPrescaler";
@@ -952,8 +941,8 @@ namespace CAN_Bus_BitTimingCalculator
 			// dataGridViewTextBoxColumn21
 			// 
 			this.dataGridViewTextBoxColumn21.DataPropertyName = "DataSamplingPoint";
-			dataGridViewCellStyle4.Format = "N2";
-			this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle3.Format = "N2";
+			this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle3;
 			this.dataGridViewTextBoxColumn21.HeaderText = "D.Smpling Point (%)";
 			this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
 			this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -961,9 +950,9 @@ namespace CAN_Bus_BitTimingCalculator
 			// clockTolerancePercentageDataGridViewTextBoxColumn
 			// 
 			this.clockTolerancePercentageDataGridViewTextBoxColumn.DataPropertyName = "ClockTolerancePercentage";
-			dataGridViewCellStyle5.Format = "N2";
-			dataGridViewCellStyle5.NullValue = null;
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle4.Format = "N2";
+			dataGridViewCellStyle4.NullValue = null;
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
 			this.clockTolerancePercentageDataGridViewTextBoxColumn.HeaderText = "Clock Tolerance (%)";
 			this.clockTolerancePercentageDataGridViewTextBoxColumn.Name = "clockTolerancePercentageDataGridViewTextBoxColumn";
 			this.clockTolerancePercentageDataGridViewTextBoxColumn.ReadOnly = true;

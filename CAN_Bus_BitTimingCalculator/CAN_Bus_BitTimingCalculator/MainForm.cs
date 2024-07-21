@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -15,6 +16,9 @@ namespace CAN_Bus_BitTimingCalculator
 {
 	public partial class MainForm : Form
 	{
+		private SortableBindingList<CANBitTimingUI> _canBitTimingsUI = new SortableBindingList<CANBitTimingUI>();
+		SortableBindingList<CANFDBitTimingUI> _canFdbitTimingsUI = new SortableBindingList<CANFDBitTimingUI>();
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -26,21 +30,11 @@ namespace CAN_Bus_BitTimingCalculator
 			uxNominalBitRate.DataSource = new List<int>() { 125, 250, 500, 800, 1000 };
 			uxNominalBitRate.SelectedItem = 1000;
 
-			foreach (DataGridViewColumn column in uxNominalSolutions.Columns)
-			{
-				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-			}
-
 			SetDoubleBuffer(uxNominalSolutions);
 
 			uxDataBitRate.DataSource = null;
 			uxDataBitRate.DataSource = new List<int>() { 125, 250, 500, 800, 1000, 2000, 4000, 5000, 8000 };
 			uxDataBitRate.SelectedItem = 2000;
-
-			foreach (DataGridViewColumn column in uxFDSolutions.Columns)
-			{
-				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-			}
 
 			SetDoubleBuffer(uxFDSolutions);
 		}
@@ -89,15 +83,13 @@ namespace CAN_Bus_BitTimingCalculator
 
 					if (bitTimings.Count > 0)
 					{
-						SortableBindingList<CANBitTimingUI> bitTimingsUI = new SortableBindingList<CANBitTimingUI>();
+						_canBitTimingsUI.Clear();
 						for (int i = 0; i < bitTimings.Count; ++i)
 						{
-							bitTimingsUI.Add(new CANBitTimingUI(bitTimings[i]));
+							_canBitTimingsUI.Add(new CANBitTimingUI(bitTimings[i]));
 						}
 
-						uxNominalSolutions.DataSource = bitTimingsUI;
-
-						uxNominalSolutions.Sort(uxNominalSolutions.Columns["uxClockTolerancePPMColumn"], ListSortDirection.Descending);
+						uxNominalSolutions.DataSource = _canBitTimingsUI;
 
 						SetResult(uxCaculateCANResult, true, "");
 					}
@@ -161,15 +153,13 @@ namespace CAN_Bus_BitTimingCalculator
 
 					if (bitTimings.Count > 0)
 					{
-						SortableBindingList<CANFDBitTimingUI> bitTimingsUI = new SortableBindingList<CANFDBitTimingUI>();
+						_canFdbitTimingsUI.Clear();
 						for (int i = 0; i < bitTimings.Count; ++i)
 						{
-							bitTimingsUI.Add(new CANFDBitTimingUI(bitTimings[i]));
+							_canFdbitTimingsUI.Add(new CANFDBitTimingUI(bitTimings[i]));
 						}
 
-						uxFDSolutions.DataSource = bitTimingsUI;
-
-						uxFDSolutions.Sort(uxFDSolutions.Columns["uxCANFDClockTolerancePPMColumn"], ListSortDirection.Descending);
+						uxFDSolutions.DataSource = _canFdbitTimingsUI;
 
 						SetResult(uxCaculateCANFDResult, true, "");
 					}

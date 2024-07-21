@@ -38,7 +38,7 @@ namespace CAN_Bus_BitTimingCalculator
 		public int NominalTSeg2 { get; private set; }
 
 		[System.ComponentModel.DisplayName("N.Sampling Point (%)")]
-		public double SamplingPoint { get; private set; }
+		public double NominalSamplingPoint { get; private set; }
 
 		[System.ComponentModel.DisplayName("D.Prescaler")]
 		public int DataPrescaler { get; private set; }
@@ -87,7 +87,7 @@ namespace CAN_Bus_BitTimingCalculator
 			NominalResynchronizationJumpWidth = canFDBitTiming.NominalParameters.ResynchronizationJumpWidth;
 			NominalTSeg1 = canFDBitTiming.NominalParameters.TSeg1;
 			NominalTSeg2 = canFDBitTiming.NominalParameters.TSeg2;
-			SamplingPoint = canFDBitTiming.NominalParameters.SamplingPoint * 1e2;
+			NominalSamplingPoint = canFDBitTiming.NominalParameters.SamplingPoint * 1e2;
 
 			DataPrescaler = canFDBitTiming.DataParameters.Prescaler;
 			DataNumberOfTimeQuantaPerBit = canFDBitTiming.DataParameters.NumberOfTimeQuantaPerBit;
