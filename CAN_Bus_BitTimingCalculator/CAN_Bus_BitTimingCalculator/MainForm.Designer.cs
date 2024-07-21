@@ -31,25 +31,13 @@ namespace CAN_Bus_BitTimingCalculator
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.uxNominalSolutions = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.uxClockTolerancePPMColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.cANBitTimingUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.uxBusPropagationDelay = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
@@ -99,21 +87,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxWarning = new System.Windows.Forms.Label();
 			this.uxCaculateCANResult = new System.Windows.Forms.Label();
 			this.uxFDSolutions = new System.Windows.Forms.DataGridView();
-			this.nominalPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nominalTSeg1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nominalTSeg2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nominalSamplingPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataTSeg1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataTSeg2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataSamplingPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clockTolerancePercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clockTolerancePPMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.cANFDBitTimingUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.uxCalculateCANFD = new System.Windows.Forms.Button();
 			this.label31 = new System.Windows.Forms.Label();
 			this.uxCaculateCANFDResult = new System.Windows.Forms.Label();
@@ -137,8 +110,36 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label40 = new System.Windows.Forms.Label();
 			this.uxSecondarySamplingPoint = new System.Windows.Forms.CheckBox();
 			this.uxSSPPanel = new System.Windows.Forms.Panel();
+			this.nominalPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nominalTSeg1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nominalTSeg2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nominalSamplingPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataTSeg1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataTSeg2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataSamplingPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clockTolerancePercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clockTolerancePPMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cANFDBitTimingUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.uxClockTolerancePPMColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cANBitTimingUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.label41 = new System.Windows.Forms.Label();
+			this.label42 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSolutions)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.cANBitTimingUIBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusPropagationDelay)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusLength)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxClockFrequency)).BeginInit();
@@ -153,12 +154,13 @@ namespace CAN_Bus_BitTimingCalculator
 			((System.ComponentModel.ISupportInitialize)(this.uxDataTSeg1Max)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataTSeg2Max)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxFDSolutions)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.cANFDBitTimingUIBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSamplingPointMin)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSamplingPointMax)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataSamplingPointMin)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataSamplingPointMax)).BeginInit();
 			this.uxSSPPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.cANFDBitTimingUIBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.cANBitTimingUIBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// uxNominalSolutions
@@ -195,91 +197,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxNominalSolutions.Size = new System.Drawing.Size(1318, 234);
 			this.uxNominalSolutions.TabIndex = 0;
 			this.uxNominalSolutions.VirtualMode = true;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Prescaler";
-			this.dataGridViewTextBoxColumn1.HeaderText = "Prescaler";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "NumberOfTimeQuantaPerBit";
-			this.dataGridViewTextBoxColumn2.HeaderText = "NBT (tq)";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "PropagationTimeSegment";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Prop_Seg (tq)";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "PhraseBufferSegment1";
-			this.dataGridViewTextBoxColumn4.HeaderText = "Phrase_Seg1 (tq)";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "PhraseBufferSegment2";
-			this.dataGridViewTextBoxColumn5.HeaderText = "Phrase_Seg2 (tq)";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "ResynchronizationJumpWidth";
-			this.dataGridViewTextBoxColumn6.HeaderText = "SJW (tq)";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.DataPropertyName = "TSeg1";
-			this.dataGridViewTextBoxColumn7.HeaderText = "TSeg1 (tq)";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.DataPropertyName = "TSeg2";
-			this.dataGridViewTextBoxColumn8.HeaderText = "TSeg2 (tq)";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn22
-			// 
-			this.dataGridViewTextBoxColumn22.DataPropertyName = "SamplingPoint";
-			dataGridViewCellStyle7.Format = "N2";
-			this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle7;
-			this.dataGridViewTextBoxColumn22.HeaderText = "Sampling Point (%)";
-			this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-			this.dataGridViewTextBoxColumn22.ReadOnly = true;
-			// 
-			// clockTolerancePercentageDataGridViewTextBoxColumn1
-			// 
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1.DataPropertyName = "ClockTolerancePercentage";
-			dataGridViewCellStyle8.Format = "N2";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1.HeaderText = "Colock Tolerance (%)";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1.Name = "clockTolerancePercentageDataGridViewTextBoxColumn1";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// uxClockTolerancePPMColumn
-			// 
-			this.uxClockTolerancePPMColumn.DataPropertyName = "ClockTolerancePPM";
-			this.uxClockTolerancePPMColumn.HeaderText = "Colock Tolerance (ppm)";
-			this.uxClockTolerancePPMColumn.Name = "uxClockTolerancePPMColumn";
-			this.uxClockTolerancePPMColumn.ReadOnly = true;
-			// 
-			// cANBitTimingUIBindingSource
-			// 
-			this.cANBitTimingUIBindingSource.DataSource = typeof(CAN_Bus_BitTimingCalculator.CANBitTimingUI);
 			// 
 			// label1
 			// 
@@ -921,132 +838,14 @@ namespace CAN_Bus_BitTimingCalculator
             this.clockTolerancePPMDataGridViewTextBoxColumn});
 			this.uxFDSolutions.DataSource = this.cANFDBitTimingUIBindingSource;
 			this.uxFDSolutions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-			this.uxFDSolutions.Location = new System.Drawing.Point(26, 570);
+			this.uxFDSolutions.Location = new System.Drawing.Point(26, 607);
 			this.uxFDSolutions.Name = "uxFDSolutions";
 			this.uxFDSolutions.RowHeadersVisible = false;
 			this.uxFDSolutions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.uxFDSolutions.RowTemplate.Height = 24;
 			this.uxFDSolutions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.uxFDSolutions.Size = new System.Drawing.Size(1318, 361);
+			this.uxFDSolutions.Size = new System.Drawing.Size(1318, 324);
 			this.uxFDSolutions.TabIndex = 0;
-			// 
-			// nominalPrescalerDataGridViewTextBoxColumn
-			// 
-			this.nominalPrescalerDataGridViewTextBoxColumn.DataPropertyName = "NominalPrescaler";
-			this.nominalPrescalerDataGridViewTextBoxColumn.HeaderText = "N.Prescaler";
-			this.nominalPrescalerDataGridViewTextBoxColumn.Name = "nominalPrescalerDataGridViewTextBoxColumn";
-			this.nominalPrescalerDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn
-			// 
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.DataPropertyName = "NominalNumberOfTimeQuantaPerBit";
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.HeaderText = "N.NBT (tq)";
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Name = "nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn";
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.ReadOnly = true;
-			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// nominalResynchronizationJumpWidthDataGridViewTextBoxColumn
-			// 
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.DataPropertyName = "NominalResynchronizationJumpWidth";
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.HeaderText = "N.SJW (tq)";
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.Name = "nominalResynchronizationJumpWidthDataGridViewTextBoxColumn";
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.ReadOnly = true;
-			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// nominalTSeg1DataGridViewTextBoxColumn
-			// 
-			this.nominalTSeg1DataGridViewTextBoxColumn.DataPropertyName = "NominalTSeg1";
-			this.nominalTSeg1DataGridViewTextBoxColumn.HeaderText = "N.TSeg1 (tq)";
-			this.nominalTSeg1DataGridViewTextBoxColumn.Name = "nominalTSeg1DataGridViewTextBoxColumn";
-			this.nominalTSeg1DataGridViewTextBoxColumn.ReadOnly = true;
-			this.nominalTSeg1DataGridViewTextBoxColumn.Width = 90;
-			// 
-			// nominalTSeg2DataGridViewTextBoxColumn
-			// 
-			this.nominalTSeg2DataGridViewTextBoxColumn.DataPropertyName = "NominalTSeg2";
-			this.nominalTSeg2DataGridViewTextBoxColumn.HeaderText = "N.TSeg2 (tq)";
-			this.nominalTSeg2DataGridViewTextBoxColumn.Name = "nominalTSeg2DataGridViewTextBoxColumn";
-			this.nominalTSeg2DataGridViewTextBoxColumn.ReadOnly = true;
-			this.nominalTSeg2DataGridViewTextBoxColumn.Width = 90;
-			// 
-			// nominalSamplingPointDataGridViewTextBoxColumn
-			// 
-			this.nominalSamplingPointDataGridViewTextBoxColumn.DataPropertyName = "NominalSamplingPoint";
-			dataGridViewCellStyle9.Format = "N2";
-			this.nominalSamplingPointDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-			this.nominalSamplingPointDataGridViewTextBoxColumn.HeaderText = "N.Sampling Point (%)";
-			this.nominalSamplingPointDataGridViewTextBoxColumn.Name = "nominalSamplingPointDataGridViewTextBoxColumn";
-			this.nominalSamplingPointDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataPrescalerDataGridViewTextBoxColumn
-			// 
-			this.dataPrescalerDataGridViewTextBoxColumn.DataPropertyName = "DataPrescaler";
-			this.dataPrescalerDataGridViewTextBoxColumn.HeaderText = "D.Prescaler";
-			this.dataPrescalerDataGridViewTextBoxColumn.Name = "dataPrescalerDataGridViewTextBoxColumn";
-			this.dataPrescalerDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn
-			// 
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.DataPropertyName = "DataNumberOfTimeQuantaPerBit";
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.HeaderText = "D.NBT (tq)";
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Name = "dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn";
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// dataResynchronizationJumpWidthDataGridViewTextBoxColumn
-			// 
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.DataPropertyName = "DataResynchronizationJumpWidth";
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.HeaderText = "D.SJW (tq)";
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.Name = "dataResynchronizationJumpWidthDataGridViewTextBoxColumn";
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// dataTSeg1DataGridViewTextBoxColumn
-			// 
-			this.dataTSeg1DataGridViewTextBoxColumn.DataPropertyName = "DataTSeg1";
-			this.dataTSeg1DataGridViewTextBoxColumn.HeaderText = "D.TSeg1 (tq)";
-			this.dataTSeg1DataGridViewTextBoxColumn.Name = "dataTSeg1DataGridViewTextBoxColumn";
-			this.dataTSeg1DataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataTSeg1DataGridViewTextBoxColumn.Width = 90;
-			// 
-			// dataTSeg2DataGridViewTextBoxColumn
-			// 
-			this.dataTSeg2DataGridViewTextBoxColumn.DataPropertyName = "DataTSeg2";
-			this.dataTSeg2DataGridViewTextBoxColumn.HeaderText = "D.TSeg2 (tq)";
-			this.dataTSeg2DataGridViewTextBoxColumn.Name = "dataTSeg2DataGridViewTextBoxColumn";
-			this.dataTSeg2DataGridViewTextBoxColumn.ReadOnly = true;
-			this.dataTSeg2DataGridViewTextBoxColumn.Width = 90;
-			// 
-			// dataSamplingPointDataGridViewTextBoxColumn
-			// 
-			this.dataSamplingPointDataGridViewTextBoxColumn.DataPropertyName = "DataSamplingPoint";
-			dataGridViewCellStyle10.Format = "N2";
-			this.dataSamplingPointDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-			this.dataSamplingPointDataGridViewTextBoxColumn.HeaderText = "D.Smpling Point (%)";
-			this.dataSamplingPointDataGridViewTextBoxColumn.Name = "dataSamplingPointDataGridViewTextBoxColumn";
-			this.dataSamplingPointDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clockTolerancePercentageDataGridViewTextBoxColumn
-			// 
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.DataPropertyName = "ClockTolerancePercentage";
-			dataGridViewCellStyle11.Format = "N4";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.HeaderText = "Clock Tolerance (%)";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.Name = "clockTolerancePercentageDataGridViewTextBoxColumn";
-			this.clockTolerancePercentageDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clockTolerancePPMDataGridViewTextBoxColumn
-			// 
-			this.clockTolerancePPMDataGridViewTextBoxColumn.DataPropertyName = "ClockTolerancePPM";
-			dataGridViewCellStyle12.Format = "N0";
-			this.clockTolerancePPMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-			this.clockTolerancePPMDataGridViewTextBoxColumn.HeaderText = "Clock Tolerance (ppm)";
-			this.clockTolerancePPMDataGridViewTextBoxColumn.Name = "clockTolerancePPMDataGridViewTextBoxColumn";
-			this.clockTolerancePPMDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// cANFDBitTimingUIBindingSource
-			// 
-			this.cANFDBitTimingUIBindingSource.DataSource = typeof(CAN_Bus_BitTimingCalculator.CANFDBitTimingUI);
 			// 
 			// uxCalculateCANFD
 			// 
@@ -1061,7 +860,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// label31
 			// 
 			this.label31.AutoSize = true;
-			this.label31.Location = new System.Drawing.Point(8, 552);
+			this.label31.Location = new System.Drawing.Point(8, 558);
 			this.label31.Name = "label31";
 			this.label31.Size = new System.Drawing.Size(106, 15);
 			this.label31.TabIndex = 7;
@@ -1307,11 +1106,236 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxSSPPanel.Size = new System.Drawing.Size(278, 27);
 			this.uxSSPPanel.TabIndex = 15;
 			// 
+			// nominalPrescalerDataGridViewTextBoxColumn
+			// 
+			this.nominalPrescalerDataGridViewTextBoxColumn.DataPropertyName = "NominalPrescaler";
+			this.nominalPrescalerDataGridViewTextBoxColumn.HeaderText = "N.Prescaler";
+			this.nominalPrescalerDataGridViewTextBoxColumn.Name = "nominalPrescalerDataGridViewTextBoxColumn";
+			this.nominalPrescalerDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn
+			// 
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.DataPropertyName = "NominalNumberOfTimeQuantaPerBit";
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.HeaderText = "N.BT (tq)";
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Name = "nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn";
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.ReadOnly = true;
+			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// nominalResynchronizationJumpWidthDataGridViewTextBoxColumn
+			// 
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.DataPropertyName = "NominalResynchronizationJumpWidth";
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.HeaderText = "N.SJW (tq)";
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.Name = "nominalResynchronizationJumpWidthDataGridViewTextBoxColumn";
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.ReadOnly = true;
+			this.nominalResynchronizationJumpWidthDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// nominalTSeg1DataGridViewTextBoxColumn
+			// 
+			this.nominalTSeg1DataGridViewTextBoxColumn.DataPropertyName = "NominalTSeg1";
+			this.nominalTSeg1DataGridViewTextBoxColumn.HeaderText = "N.TSeg1 (tq)";
+			this.nominalTSeg1DataGridViewTextBoxColumn.Name = "nominalTSeg1DataGridViewTextBoxColumn";
+			this.nominalTSeg1DataGridViewTextBoxColumn.ReadOnly = true;
+			this.nominalTSeg1DataGridViewTextBoxColumn.Width = 90;
+			// 
+			// nominalTSeg2DataGridViewTextBoxColumn
+			// 
+			this.nominalTSeg2DataGridViewTextBoxColumn.DataPropertyName = "NominalTSeg2";
+			this.nominalTSeg2DataGridViewTextBoxColumn.HeaderText = "N.TSeg2 (tq)";
+			this.nominalTSeg2DataGridViewTextBoxColumn.Name = "nominalTSeg2DataGridViewTextBoxColumn";
+			this.nominalTSeg2DataGridViewTextBoxColumn.ReadOnly = true;
+			this.nominalTSeg2DataGridViewTextBoxColumn.Width = 90;
+			// 
+			// nominalSamplingPointDataGridViewTextBoxColumn
+			// 
+			this.nominalSamplingPointDataGridViewTextBoxColumn.DataPropertyName = "NominalSamplingPoint";
+			dataGridViewCellStyle3.Format = "N2";
+			this.nominalSamplingPointDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+			this.nominalSamplingPointDataGridViewTextBoxColumn.HeaderText = "N.Sampling Point (%)";
+			this.nominalSamplingPointDataGridViewTextBoxColumn.Name = "nominalSamplingPointDataGridViewTextBoxColumn";
+			this.nominalSamplingPointDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataPrescalerDataGridViewTextBoxColumn
+			// 
+			this.dataPrescalerDataGridViewTextBoxColumn.DataPropertyName = "DataPrescaler";
+			this.dataPrescalerDataGridViewTextBoxColumn.HeaderText = "D.Prescaler";
+			this.dataPrescalerDataGridViewTextBoxColumn.Name = "dataPrescalerDataGridViewTextBoxColumn";
+			this.dataPrescalerDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn
+			// 
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.DataPropertyName = "DataNumberOfTimeQuantaPerBit";
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.HeaderText = "D.BT (tq)";
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Name = "dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn";
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// dataResynchronizationJumpWidthDataGridViewTextBoxColumn
+			// 
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.DataPropertyName = "DataResynchronizationJumpWidth";
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.HeaderText = "D.SJW (tq)";
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.Name = "dataResynchronizationJumpWidthDataGridViewTextBoxColumn";
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataResynchronizationJumpWidthDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// dataTSeg1DataGridViewTextBoxColumn
+			// 
+			this.dataTSeg1DataGridViewTextBoxColumn.DataPropertyName = "DataTSeg1";
+			this.dataTSeg1DataGridViewTextBoxColumn.HeaderText = "D.TSeg1 (tq)";
+			this.dataTSeg1DataGridViewTextBoxColumn.Name = "dataTSeg1DataGridViewTextBoxColumn";
+			this.dataTSeg1DataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataTSeg1DataGridViewTextBoxColumn.Width = 90;
+			// 
+			// dataTSeg2DataGridViewTextBoxColumn
+			// 
+			this.dataTSeg2DataGridViewTextBoxColumn.DataPropertyName = "DataTSeg2";
+			this.dataTSeg2DataGridViewTextBoxColumn.HeaderText = "D.TSeg2 (tq)";
+			this.dataTSeg2DataGridViewTextBoxColumn.Name = "dataTSeg2DataGridViewTextBoxColumn";
+			this.dataTSeg2DataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataTSeg2DataGridViewTextBoxColumn.Width = 90;
+			// 
+			// dataSamplingPointDataGridViewTextBoxColumn
+			// 
+			this.dataSamplingPointDataGridViewTextBoxColumn.DataPropertyName = "DataSamplingPoint";
+			dataGridViewCellStyle4.Format = "N2";
+			this.dataSamplingPointDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+			this.dataSamplingPointDataGridViewTextBoxColumn.HeaderText = "D.Smpling Point (%)";
+			this.dataSamplingPointDataGridViewTextBoxColumn.Name = "dataSamplingPointDataGridViewTextBoxColumn";
+			this.dataSamplingPointDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// clockTolerancePercentageDataGridViewTextBoxColumn
+			// 
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.DataPropertyName = "ClockTolerancePercentage";
+			dataGridViewCellStyle5.Format = "N4";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.HeaderText = "Clock Tolerance (%)";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.Name = "clockTolerancePercentageDataGridViewTextBoxColumn";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// clockTolerancePPMDataGridViewTextBoxColumn
+			// 
+			this.clockTolerancePPMDataGridViewTextBoxColumn.DataPropertyName = "ClockTolerancePPM";
+			dataGridViewCellStyle6.Format = "N0";
+			this.clockTolerancePPMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+			this.clockTolerancePPMDataGridViewTextBoxColumn.HeaderText = "Clock Tolerance (ppm)";
+			this.clockTolerancePPMDataGridViewTextBoxColumn.Name = "clockTolerancePPMDataGridViewTextBoxColumn";
+			this.clockTolerancePPMDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// cANFDBitTimingUIBindingSource
+			// 
+			this.cANFDBitTimingUIBindingSource.DataSource = typeof(CAN_Bus_BitTimingCalculator.CANFDBitTimingUI);
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.DataPropertyName = "Prescaler";
+			this.dataGridViewTextBoxColumn1.HeaderText = "Prescaler";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.DataPropertyName = "NumberOfTimeQuantaPerBit";
+			this.dataGridViewTextBoxColumn2.HeaderText = "NBT (tq)";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.DataPropertyName = "PropagationTimeSegment";
+			this.dataGridViewTextBoxColumn3.HeaderText = "Prop_Seg (tq)";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.DataPropertyName = "PhraseBufferSegment1";
+			this.dataGridViewTextBoxColumn4.HeaderText = "Phrase_Seg1 (tq)";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this.dataGridViewTextBoxColumn5.DataPropertyName = "PhraseBufferSegment2";
+			this.dataGridViewTextBoxColumn5.HeaderText = "Phrase_Seg2 (tq)";
+			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+			this.dataGridViewTextBoxColumn5.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.DataPropertyName = "ResynchronizationJumpWidth";
+			this.dataGridViewTextBoxColumn6.HeaderText = "SJW (tq)";
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this.dataGridViewTextBoxColumn7.DataPropertyName = "TSeg1";
+			this.dataGridViewTextBoxColumn7.HeaderText = "TSeg1 (tq)";
+			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+			this.dataGridViewTextBoxColumn7.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this.dataGridViewTextBoxColumn8.DataPropertyName = "TSeg2";
+			this.dataGridViewTextBoxColumn8.HeaderText = "TSeg2 (tq)";
+			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+			this.dataGridViewTextBoxColumn8.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn22
+			// 
+			this.dataGridViewTextBoxColumn22.DataPropertyName = "SamplingPoint";
+			dataGridViewCellStyle1.Format = "N2";
+			this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle1;
+			this.dataGridViewTextBoxColumn22.HeaderText = "Sampling Point (%)";
+			this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+			this.dataGridViewTextBoxColumn22.ReadOnly = true;
+			// 
+			// clockTolerancePercentageDataGridViewTextBoxColumn1
+			// 
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1.DataPropertyName = "ClockTolerancePercentage";
+			dataGridViewCellStyle2.Format = "N2";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1.HeaderText = "Colock Tolerance (%)";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1.Name = "clockTolerancePercentageDataGridViewTextBoxColumn1";
+			this.clockTolerancePercentageDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// uxClockTolerancePPMColumn
+			// 
+			this.uxClockTolerancePPMColumn.DataPropertyName = "ClockTolerancePPM";
+			this.uxClockTolerancePPMColumn.HeaderText = "Colock Tolerance (ppm)";
+			this.uxClockTolerancePPMColumn.Name = "uxClockTolerancePPMColumn";
+			this.uxClockTolerancePPMColumn.ReadOnly = true;
+			// 
+			// cANBitTimingUIBindingSource
+			// 
+			this.cANBitTimingUIBindingSource.DataSource = typeof(CAN_Bus_BitTimingCalculator.CANBitTimingUI);
+			// 
+			// label41
+			// 
+			this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.label41.Location = new System.Drawing.Point(27, 578);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(542, 26);
+			this.label41.TabIndex = 16;
+			this.label41.Text = "Norminal";
+			this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label42
+			// 
+			this.label42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.label42.Location = new System.Drawing.Point(568, 578);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(542, 26);
+			this.label42.TabIndex = 16;
+			this.label42.Text = "Data";
+			this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1356, 943);
+			this.Controls.Add(this.label42);
+			this.Controls.Add(this.label41);
 			this.Controls.Add(this.uxSSPPanel);
 			this.Controls.Add(this.uxSecondarySamplingPoint);
 			this.Controls.Add(this.uxPercentage);
@@ -1387,7 +1411,6 @@ namespace CAN_Bus_BitTimingCalculator
 			this.Text = "CAN Bus Bit Timing Calculator";
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSolutions)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.cANBitTimingUIBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusPropagationDelay)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxBusLength)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxClockFrequency)).EndInit();
@@ -1402,13 +1425,14 @@ namespace CAN_Bus_BitTimingCalculator
 			((System.ComponentModel.ISupportInitialize)(this.uxDataTSeg1Max)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataTSeg2Max)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxFDSolutions)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.cANFDBitTimingUIBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSamplingPointMin)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxNominalSamplingPointMax)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataSamplingPointMin)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uxDataSamplingPointMax)).EndInit();
 			this.uxSSPPanel.ResumeLayout(false);
 			this.uxSSPPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.cANFDBitTimingUIBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.cANBitTimingUIBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1517,6 +1541,8 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.DataGridViewTextBoxColumn clockTolerancePPMDataGridViewTextBoxColumn;
 		private System.Windows.Forms.CheckBox uxSecondarySamplingPoint;
 		private System.Windows.Forms.Panel uxSSPPanel;
+		private System.Windows.Forms.Label label41;
+		private System.Windows.Forms.Label label42;
 	}
 }
 
