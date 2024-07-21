@@ -177,13 +177,19 @@ namespace CAN_Bus_BitTimingCalculator
 
 		private void CheckPropagationDelayRatio(CommonParameters commonParameters, CANControllerParameters nominal)
 		{
-			double tProg = 2.0 * (commonParameters.TransceiverLoopDelay + commonParameters.BusLength * commonParameters.BusPropagationDelay);
+			double bitTime = 1.0 / (double)nominal.TargetBitRate;
+			double bitTimeNs = bitTime * 1e9;
+			double tProgNs = 2.0 * (commonParameters.TransceiverLoopDelay + commonParameters.BusLength * commonParameters.BusPropagationDelay);
 
-			double propRatio = tProg / (1.0 / nominal.TargetBitRate * 1e9);
+			double propRatio = tProgNs / bitTimeNs;
 			if (propRatio > 0.5)
 			{
 				uxWarning.Visible = true;
 			}
+
+			uxBitTime.Text = bitTimeNs.ToString("N0");
+			uxPropagationDelay.Text = tProgNs.ToString("N0");
+			uxPercentage.Text = (propRatio * 100).ToString("N2");
 		}
 
 		private void SetResult(Label labe1, bool success, string message)

@@ -90,6 +90,12 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxCaculateCANFDResult = new System.Windows.Forms.Label();
 			this.uxSetTSegToCANFDDefault = new System.Windows.Forms.Button();
 			this.uxSetTSegToCAN20Default = new System.Windows.Forms.Button();
+			this.label32 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.uxBitTime = new System.Windows.Forms.Label();
+			this.uxPropagationDelay = new System.Windows.Forms.Label();
+			this.uxPercentage = new System.Windows.Forms.Label();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -764,7 +770,7 @@ namespace CAN_Bus_BitTimingCalculator
 			// 
 			this.uxWarning.AutoSize = true;
 			this.uxWarning.BackColor = System.Drawing.Color.LightPink;
-			this.uxWarning.Location = new System.Drawing.Point(39, 26);
+			this.uxWarning.Location = new System.Drawing.Point(32, 113);
 			this.uxWarning.Name = "uxWarning";
 			this.uxWarning.Size = new System.Drawing.Size(289, 75);
 			this.uxWarning.TabIndex = 8;
@@ -867,6 +873,60 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxSetTSegToCAN20Default.Text = "Set TSeg Range to CAN 2.0 Default";
 			this.uxSetTSegToCAN20Default.UseVisualStyleBackColor = true;
 			this.uxSetTSegToCAN20Default.Click += new System.EventHandler(this.uxSetTSegToCAN20Default_Click);
+			// 
+			// label32
+			// 
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(32, 66);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(73, 15);
+			this.label32.TabIndex = 12;
+			this.label32.Text = "Bit Time (ns)";
+			// 
+			// label33
+			// 
+			this.label33.AutoSize = true;
+			this.label33.Location = new System.Drawing.Point(32, 49);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(127, 15);
+			this.label33.TabIndex = 12;
+			this.label33.Text = "Propagation Delay (ns)";
+			// 
+			// label34
+			// 
+			this.label34.AutoSize = true;
+			this.label34.Location = new System.Drawing.Point(32, 83);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(55, 15);
+			this.label34.TabIndex = 13;
+			this.label34.Text = "Ratio (%)";
+			// 
+			// uxBitTime
+			// 
+			this.uxBitTime.AutoSize = true;
+			this.uxBitTime.Location = new System.Drawing.Point(165, 66);
+			this.uxBitTime.Name = "uxBitTime";
+			this.uxBitTime.Size = new System.Drawing.Size(29, 15);
+			this.uxBitTime.TabIndex = 12;
+			this.uxBitTime.Text = "N/A";
+			// 
+			// uxPropagationDelay
+			// 
+			this.uxPropagationDelay.AutoSize = true;
+			this.uxPropagationDelay.Location = new System.Drawing.Point(165, 49);
+			this.uxPropagationDelay.Name = "uxPropagationDelay";
+			this.uxPropagationDelay.Size = new System.Drawing.Size(29, 15);
+			this.uxPropagationDelay.TabIndex = 12;
+			this.uxPropagationDelay.Text = "N/A";
+			// 
+			// uxPercentage
+			// 
+			this.uxPercentage.AutoSize = true;
+			this.uxPercentage.Location = new System.Drawing.Point(165, 83);
+			this.uxPercentage.Name = "uxPercentage";
+			this.uxPercentage.Size = new System.Drawing.Size(29, 15);
+			this.uxPercentage.TabIndex = 13;
+			this.uxPercentage.Text = "N/A";
 			// 
 			// dataGridViewTextBoxColumn9
 			// 
@@ -1058,6 +1118,12 @@ namespace CAN_Bus_BitTimingCalculator
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1362, 911);
+			this.Controls.Add(this.uxPercentage);
+			this.Controls.Add(this.label34);
+			this.Controls.Add(this.uxPropagationDelay);
+			this.Controls.Add(this.label33);
+			this.Controls.Add(this.uxBitTime);
+			this.Controls.Add(this.label32);
 			this.Controls.Add(this.uxSetTSegToCAN20Default);
 			this.Controls.Add(this.uxSetTSegToCANFDDefault);
 			this.Controls.Add(this.uxCalculateCANFD);
@@ -1225,6 +1291,12 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clockTolerancePercentageDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn uxCANFDClockTolerancePPMColumn;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.Label label33;
+		private System.Windows.Forms.Label label34;
+		private System.Windows.Forms.Label uxBitTime;
+		private System.Windows.Forms.Label uxPropagationDelay;
+		private System.Windows.Forms.Label uxPercentage;
 	}
 }
 
