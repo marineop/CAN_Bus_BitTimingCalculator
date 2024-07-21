@@ -61,7 +61,7 @@ namespace CANBusBitTiming
 
 				for (int numberOfTimeQuanta = minNumberOfTimeQuanta; numberOfTimeQuanta < maxNumberOfTimeQuanta + 1; ++numberOfTimeQuanta)
 				{
-					if(numberOfTimeQuanta > fineNumberOfTimeQuanta)
+					if (numberOfTimeQuanta > fineNumberOfTimeQuanta)
 					{
 						break;
 					}
@@ -73,43 +73,45 @@ namespace CANBusBitTiming
 						long newClockFrequency = commonParameters.ClockFrequency / prescaler;
 
 						double timeQuantum = 1.0 / (double)newClockFrequency * 1e9;
-						int porpSeg = (int)Math.Ceiling(tProg / timeQuantum);
+						int minPorpSeg = (int)Math.Ceiling(tProg / timeQuantum);
+						int syncSeg = 1;
+						int minPhraseSeg1 = 1;
+						int minPhraseSeg2 = Math.Max(1, commonParameters.InformationProcessingTime);
+						int maxPropSeg = numberOfTimeQuanta - syncSeg - minPhraseSeg1 - minPhraseSeg2;
 
-						int remain = numberOfTimeQuanta - 1 - porpSeg;
-
-						if (remain < commonParameters.InformationProcessingTime + 1 || remain < 2)
+						for (int porpSegNow = minPorpSeg; porpSegNow <= maxPropSeg; ++porpSegNow)
 						{
-							continue;
+							int porpSeg = porpSegNow;
+							int remain = numberOfTimeQuanta - syncSeg - porpSeg;
+
+							if (remain % 2 != 0 && porpSegNow != maxPropSeg)
+							{
+								continue;
+							}
+
+							int phraseSeg1 = remain / 2;
+							int phraseSeg2 = phraseSeg1;
+
+							if (phraseSeg2 < commonParameters.InformationProcessingTime)
+							{
+								porpSeg -= (commonParameters.InformationProcessingTime - phraseSeg2);
+								phraseSeg2 = commonParameters.InformationProcessingTime;
+							}
+
+							int sjw = Math.Min(phraseSeg1, 4);
+
+							BitTiming bitTiming = new BitTiming();
+							bitTiming.Prescaler = prescaler;
+							bitTiming.NumberOfTimeQuantaPerBit = numberOfTimeQuanta;
+							bitTiming.PropagationTimeSegment = porpSeg;
+							bitTiming.PhraseBufferSegment1 = phraseSeg1;
+							bitTiming.PhraseBufferSegment2 = phraseSeg2;
+							bitTiming.ResynchronizationJumpWidth = sjw;
+							bitTiming.TSeg1 = porpSeg + phraseSeg1;
+							bitTiming.TSeg2 = phraseSeg2;
+
+							bitTimings.Add(bitTiming);
 						}
-
-						if (remain % 2 != 0)
-						{
-							++porpSeg;
-							--remain;
-						}
-
-						int phraseSeg1 = remain / 2;
-						int phraseSeg2 = phraseSeg1;
-
-						if (phraseSeg2 < commonParameters.InformationProcessingTime)
-						{
-							porpSeg -= (commonParameters.InformationProcessingTime - phraseSeg2);
-							phraseSeg2 = commonParameters.InformationProcessingTime;
-						}
-
-						int sjw = Math.Min(phraseSeg1, 4);
-
-						BitTiming bitTiming = new BitTiming();
-						bitTiming.Prescaler = prescaler;
-						bitTiming.NumberOfTimeQuantaPerBit = numberOfTimeQuanta;
-						bitTiming.PropagationTimeSegment = porpSeg;
-						bitTiming.PhraseBufferSegment1 = phraseSeg1;
-						bitTiming.PhraseBufferSegment2 = phraseSeg2;
-						bitTiming.ResynchronizationJumpWidth = sjw;
-						bitTiming.TSeg1 = porpSeg + phraseSeg1;
-						bitTiming.TSeg2 = phraseSeg2;
-
-						bitTimings.Add(bitTiming);
 					}
 				}
 			}
@@ -130,7 +132,7 @@ namespace CANBusBitTiming
 
 				for (int numberOfTimeQuanta = minNumberOfTimeQuanta; numberOfTimeQuanta < maxNumberOfTimeQuanta + 1; ++numberOfTimeQuanta)
 				{
-					if(numberOfTimeQuanta > fineNumberOfTimeQuanta)
+					if (numberOfTimeQuanta > fineNumberOfTimeQuanta)
 					{
 						break;
 					}
