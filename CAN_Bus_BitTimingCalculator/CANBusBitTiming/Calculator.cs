@@ -122,7 +122,10 @@ namespace CANBusBitTiming
 							bitTiming.TSeg1 = porpSeg + phraseSeg1;
 							bitTiming.TSeg2 = phraseSeg2;
 
-							bitTimings.Add(bitTiming);
+							if (bitTiming.SamplingPoint >= controllerParameters.SamplingPointMin && bitTiming.SamplingPoint <= controllerParameters.SamplingPointMax)
+							{
+								bitTimings.Add(bitTiming);
+							}
 						}
 					}
 				}
@@ -168,7 +171,11 @@ namespace CANBusBitTiming
 
 							bitTiming.ResynchronizationJumpWidth = phraseSeg2;
 
-							bitTimings.Add(bitTiming);
+							if (controllerParameters.UseSecondarySamplingPoint ||
+								(bitTiming.SamplingPoint >= controllerParameters.SamplingPointMin && bitTiming.SamplingPoint <= controllerParameters.SamplingPointMax))
+							{
+								bitTimings.Add(bitTiming);
+							}
 						}
 					}
 				}

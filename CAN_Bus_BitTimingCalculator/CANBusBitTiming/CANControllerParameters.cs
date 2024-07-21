@@ -15,5 +15,10 @@ namespace CANBusBitTiming
 		public int TSeg2Max { get; set; }
 
 		public long TargetBitRate { get; set; }
+
+		public double SamplingPointMin { get; set; } = 50.0;
+		public double SamplingPointMax { get; set; } = 100.0;
+
+		public bool UseSecondarySamplingPoint { get; set; } = false;
 	}
 }

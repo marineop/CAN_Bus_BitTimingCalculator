@@ -67,6 +67,9 @@ namespace CAN_Bus_BitTimingCalculator
 
 				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
 
+				nominal.SamplingPointMin = (double)uxNominalSamplingPointMin.Value * 1e-2;
+				nominal.SamplingPointMax = (double)uxNominalSamplingPointMax.Value * 1e-2;
+
 				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
 				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
 
@@ -128,6 +131,9 @@ namespace CAN_Bus_BitTimingCalculator
 
 				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
 
+				nominal.SamplingPointMin = (double)uxNominalSamplingPointMin.Value * 1e-2;
+				nominal.SamplingPointMax = (double)uxNominalSamplingPointMax.Value * 1e-2;
+
 				CANControllerParameters data = new CANControllerParameters();
 				data.TSeg1Min = (int)uxDataTSeg1Min.Value;
 				data.TSeg1Max = (int)uxDataTSeg1Max.Value;
@@ -136,6 +142,11 @@ namespace CAN_Bus_BitTimingCalculator
 				data.TSeg2Max = (int)uxDataTSeg2Max.Value;
 
 				data.TargetBitRate = (long)(double.Parse(uxDataBitRate.Text) * 1000);
+
+				data.SamplingPointMin = (double)uxDataSamplingPointMin.Value * 1e-2;
+				data.SamplingPointMax = (double)uxDataSamplingPointMax.Value * 1e-2;
+
+				data.UseSecondarySamplingPoint = uxSecondarySamplingPoint.Checked;
 
 				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
 				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
@@ -233,6 +244,11 @@ namespace CAN_Bus_BitTimingCalculator
 
 			uxTSeg2Min.Value = 1;
 			uxTSeg2Max.Value = 8;
+		}
+
+		private void uxSecondarySamplingPoint_CheckedChanged(object sender, EventArgs e)
+		{
+			uxSSPPanel.Enabled = !uxSecondarySamplingPoint.Checked;
 		}
 	}
 }
