@@ -14,6 +14,6 @@ namespace CANBusBitTiming
 		public int TSeg2Min { get; set; }
 		public int TSeg2Max { get; set; }
 
-		public int TargetBitRate { get; set; }
+		public long TargetBitRate { get; set; }
 	}
 }

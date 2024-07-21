@@ -71,7 +71,7 @@ namespace CAN_Bus_BitTimingCalculator
 				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
 				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
 
-				nominal.TargetBitRate = (int)(double.Parse(uxNominalBitRate.Text) * 1000);
+				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
 
 				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
 				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;
@@ -134,7 +134,7 @@ namespace CAN_Bus_BitTimingCalculator
 				nominal.TSeg2Min = (int)uxTSeg2Min.Value;
 				nominal.TSeg2Max = (int)uxTSeg2Max.Value;
 
-				nominal.TargetBitRate = (int)(double.Parse(uxNominalBitRate.Text) * 1000);
+				nominal.TargetBitRate = (long)(double.Parse(uxNominalBitRate.Text) * 1000);
 
 				CANControllerParameters data = new CANControllerParameters();
 				data.TSeg1Min = (int)uxDataTSeg1Min.Value;
@@ -143,7 +143,7 @@ namespace CAN_Bus_BitTimingCalculator
 				data.TSeg2Min = (int)uxDataTSeg2Min.Value;
 				data.TSeg2Max = (int)uxDataTSeg2Max.Value;
 
-				data.TargetBitRate = (int)(double.Parse(uxDataBitRate.Text) * 1000);
+				data.TargetBitRate = (long)(double.Parse(uxDataBitRate.Text) * 1000);
 
 				int minNumberOfTimeQuanta = 1 + nominal.TSeg1Min + nominal.TSeg2Min;
 				int maxNumberOfTimeQuanta = 1 + nominal.TSeg1Max + nominal.TSeg2Max;

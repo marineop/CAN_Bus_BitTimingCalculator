@@ -1,4 +1,4 @@
-# CAN Bus Timing Calculator
+# CAN Bus Bit Timing Calculator
 ![](images/ui.png)
 1. Simple Windows Form project
 1. List all possible bit timing parameters
