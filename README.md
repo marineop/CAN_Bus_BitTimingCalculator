@@ -11,7 +11,7 @@
 	* Bus Length: According to your physical cable.
 	* Bus Propagation Delay: According to the cable datasheet or actual measurement.
 	* Transceiver Loop Delay: Check the CAN transceiver datasheet.
-	* CAN Controller IPT: Information Processing Timer. Check the datasheet of MCU.
+	* CAN Controller IPT: Information Processing Time. Check the datasheet of MCU.
 	* Clock Frequency: Check the system clock and PLL settings of MCU and firmware.
 
 2. CAN 2.0
@@ -25,6 +25,7 @@
 	* Sampling Range: Filter to the result, in case your system require a specific range of sampling point.
 
 # Reference
+1. [FDCAN Normal Operating Mode](https://www.youtube.com/watch?v=xGRvVKfs2-0)
 1. [AN1798: CAN Bit Timing Requirements](https://www.nxp.com/docs/en/application-note/AN1798.pdf) by Stuart Robb, East Kilbride, Scotland, NXP
 1. [Bit Time Requirements for CAN FD](https://www.bosch-semiconductors.com/media/ip_modules/pdf_2/papers/icc14_2013_paper_hartwich_1.pdf) by Florian Hartwich, Robert Bosch GmbH
 1. [Robustness of a CAN FD Bus System – About Oscillator Tolerance and Edge Deviations](https://www.bosch-semiconductors.com/media/ip_modules/pdf_2/papers/icc14_2013_paper_mutter_1.pdf) by Dr. Arthur Mutter, Robert Bosch GmbH

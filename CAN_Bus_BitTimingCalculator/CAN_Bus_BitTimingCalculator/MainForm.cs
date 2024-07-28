@@ -276,6 +276,17 @@ namespace CAN_Bus_BitTimingCalculator
 		private void uxSecondarySamplingPoint_CheckedChanged(object sender, EventArgs e)
 		{
 			uxSSPPanel.Enabled = !uxSecondarySamplingPoint.Checked;
+			if(uxSecondarySamplingPoint.Checked)
+			{
+				uxDataColumnHeader.Width = 542;
+				dataSamplingPointDataGridViewTextBoxColumn.Visible = true;
+			}
+			else
+			{
+				uxDataColumnHeader.Width = 441;
+				dataSamplingPointDataGridViewTextBoxColumn.Visible = false;
+			}
+			
 		}
 	}
 }

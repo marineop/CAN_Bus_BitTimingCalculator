@@ -111,7 +111,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.uxSecondarySamplingPoint = new System.Windows.Forms.CheckBox();
 			this.uxSSPPanel = new System.Windows.Forms.Panel();
 			this.label41 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
+			this.uxDataColumnHeader = new System.Windows.Forms.Label();
 			this.uxToolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.nominalPrescalerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -287,6 +287,11 @@ namespace CAN_Bus_BitTimingCalculator
 			// uxClockFrequency
 			// 
 			this.uxClockFrequency.DecimalPlaces = 1;
+			this.uxClockFrequency.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
 			this.uxClockFrequency.Location = new System.Drawing.Point(560, 171);
 			this.uxClockFrequency.Maximum = new decimal(new int[] {
             10000,
@@ -1123,15 +1128,15 @@ namespace CAN_Bus_BitTimingCalculator
 			this.label41.Text = "Norminal";
 			this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label42
+			// uxDataColumnHeader
 			// 
-			this.label42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.label42.Location = new System.Drawing.Point(568, 578);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(542, 26);
-			this.label42.TabIndex = 16;
-			this.label42.Text = "Data";
-			this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.uxDataColumnHeader.BackColor = System.Drawing.Color.LightGreen;
+			this.uxDataColumnHeader.Location = new System.Drawing.Point(568, 578);
+			this.uxDataColumnHeader.Name = "uxDataColumnHeader";
+			this.uxDataColumnHeader.Size = new System.Drawing.Size(441, 26);
+			this.uxDataColumnHeader.TabIndex = 16;
+			this.uxDataColumnHeader.Text = "Data";
+			this.uxDataColumnHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// nominalPrescalerDataGridViewTextBoxColumn
 			// 
@@ -1228,6 +1233,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.dataSamplingPointDataGridViewTextBoxColumn.HeaderText = "D.Smpling Point (%)";
 			this.dataSamplingPointDataGridViewTextBoxColumn.Name = "dataSamplingPointDataGridViewTextBoxColumn";
 			this.dataSamplingPointDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dataSamplingPointDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// clockTolerancePercentageDataGridViewTextBoxColumn
 			// 
@@ -1341,7 +1347,7 @@ namespace CAN_Bus_BitTimingCalculator
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1356, 943);
-			this.Controls.Add(this.label42);
+			this.Controls.Add(this.uxDataColumnHeader);
 			this.Controls.Add(this.label41);
 			this.Controls.Add(this.uxSSPPanel);
 			this.Controls.Add(this.uxSecondarySamplingPoint);
@@ -1532,6 +1538,11 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.NumericUpDown uxDataSamplingPointMin;
 		private System.Windows.Forms.NumericUpDown uxDataSamplingPointMax;
 		private System.Windows.Forms.Label label40;
+		private System.Windows.Forms.CheckBox uxSecondarySamplingPoint;
+		private System.Windows.Forms.Panel uxSSPPanel;
+		private System.Windows.Forms.Label label41;
+		private System.Windows.Forms.Label uxDataColumnHeader;
+		private System.Windows.Forms.ToolTip uxToolTip;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nominalPrescalerDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nominalNumberOfTimeQuantaPerBitDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nominalResynchronizationJumpWidthDataGridViewTextBoxColumn;
@@ -1546,11 +1557,6 @@ namespace CAN_Bus_BitTimingCalculator
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataSamplingPointDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clockTolerancePercentageDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clockTolerancePPMDataGridViewTextBoxColumn;
-		private System.Windows.Forms.CheckBox uxSecondarySamplingPoint;
-		private System.Windows.Forms.Panel uxSSPPanel;
-		private System.Windows.Forms.Label label41;
-		private System.Windows.Forms.Label label42;
-		private System.Windows.Forms.ToolTip uxToolTip;
 	}
 }
 
